@@ -60,7 +60,11 @@ export default {
             {
               path: "foundlist",
               name: "资金流水"
-            }
+            },
+						{
+							path: "payList",
+							name: "支付单据"
+						}
           ]
         },
         {

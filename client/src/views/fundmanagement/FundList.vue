@@ -130,7 +130,7 @@
 
 <script>
 // @ is an alias to /src
-import Dialong from '../components/Dialong'
+import Dialong from '../../components/Dialong'
 export default {
   name: 'FundList',
     data () {

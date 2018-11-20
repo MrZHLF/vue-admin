@@ -1,12 +1,13 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Index from './views/Index.vue'
-import Register from './views/Register'
-import Login from "./views/Login";
+import Register from './views/register/Register'
+import Login from "./views/logo/Login";
 import Nofind from './views/404'
 import Home from './views/Home'
 import InfoShow from "./views/InfoShow";
-import FundList from "./views/FundList";
+import FundList from "./views/fundmanagement/FundList";
+import PayList from "./views/fundmanagement/PayList";
 import Staff from "./views/Staff";
 import ListUser from "./views/ListUser";
 import MapList from "./views/MapList";
@@ -29,6 +30,7 @@ const router = new Router({
         { path: "/home", name: "home", component: Home },
         { path: "/Infoshow", name: "Infoshow", component: InfoShow },
         { path: "/foundlist", name: "fundlist", component: FundList },
+				{ path: "/payList", name: "payList", component: PayList },
         { path: "/staff", name: "staff", component: Staff },
         { path: "/listuser", name: "listuser", component: ListUser },
         { path: "/maplist", name: "maplist", component: MapList },
