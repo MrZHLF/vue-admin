@@ -104,10 +104,21 @@
             type="primary"
             size="small"
             @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
-          <el-button
+          <!-- <el-button
             size="small"
             type="danger"
-            @click="handleDelete(scope.$index, scope.row)">删除</el-button>
+            @click="handleDelete(scope.$index, scope.row)">删除</el-button> -->
+						<el-popover
+							placement="top"
+							width="160"
+							v-model="visible">
+							<p>确定要删除吗？</p>
+							<div style="text-align: right; margin: 0">
+								<el-button size="mini" type="text" @click="visible = false">取消</el-button>
+								<el-button type="primary" size="mini" @click="getDeleteVisible(scope.$index, scope.row)">确定</el-button>
+							</div>
+							<el-button slot="reference" @click="handleDelete(scope.row)">删除</el-button>
+						</el-popover>
         </template>
       </el-table-column>
     </el-table>
@@ -135,6 +146,7 @@ export default {
   name: 'FundList',
     data () {
         return {
+					visible: false,
 					message:"数据不存在",
 					search_data:{
 						startDate:'',
@@ -192,7 +204,7 @@ export default {
           id: row._id
         }
       },
-      handleDelete(index,row){  //删除数据
+     /* handleDelete(index,row){  //删除数据
         this.$axios.delete(`/api/profiles/delete/${row._id}`).then(res => {
           this.$message({
             message: '删除成功',
@@ -200,7 +212,22 @@ export default {
           })
         })
         this.getProfiles()  
-      },
+      }, */
+			handleDelete(row){
+				console.log(row)	
+				this.visible = true
+			},
+			getDeleteVisible(index,row){
+				// console.log(row)
+				this.$axios.delete(`/api/profiles/delete/${row._id}`).then(res => {
+					this.$message({
+						message: '删除成功',
+						type: 'success'
+					})
+				})
+				this.getProfiles(); 
+				this.visible = false;//隐藏弹出框
+			},
       onAddMoney(){  //添加信息
         this.dialog={
           title:'添加信息',

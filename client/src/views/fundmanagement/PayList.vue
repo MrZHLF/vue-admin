@@ -1,5 +1,20 @@
 <template>
 	<div class="pay-list">
+		<div class="search-box">
+			<el-form
+				:inline="true"
+				ref="search_data"
+				:rules="rules"
+				:model="search_data"
+			>
+				<el-form-item label="支付单号:">
+					<el-input type="text" v-model="search_data.payNumber" placeholder="请输入支付单号"></el-input>
+				</el-form-item>
+				<el-form-item>
+					<el-button type="primary" icon="search" @click='onScreeoutMoney("search_data")'>筛选</el-button>
+				</el-form-item>
+			</el-form>
+		</div>
 		<div class="tab-contenet">
 			<el-table
 				:data="tableData"
@@ -10,6 +25,7 @@
 				</el-table-column>
 				<el-table-column
 				  label="支付单号"
+					prop="payNumber"
 				  align='center'
 				  width="160">
 				  <template slot-scope="scope">
@@ -94,6 +110,14 @@ export default {
 						]
 					}
 				}
+			},
+			search_data:{
+				payNumber:""
+			},
+			rules:{
+				payNumber:[
+					{required: true,message: '支付单号不能为空', trigger: 'blur' }
+				]
 			}
 		}
 	},
@@ -152,6 +176,14 @@ export default {
 			}
 			return statusTag
 			console.log(this.tagvalue)
+		},
+		onScreeoutMoney(){
+			if(this.search_data.payNumber === '') {
+				 this.$message({
+          message: '支付单号不能为空',
+          type: 'warning'
+        });
+			}
 		}
 	},
 	created() {
@@ -162,5 +194,8 @@ export default {
 <style scoped>
 .tab-contenet{
 	margin: 50px 30px;
+}
+.search-box {
+	margin: 20px 0 0 20px;
 }
 </style>
