@@ -1,14 +1,14 @@
 <template>
-	<div class="base">
+	<div class="base-charts">
 		<el-row>
-			<el-col :span="12">
+			<el-col :span="12" class="list-item">
 				<div class="grid-content bg-purple">
-					<Stacked/>
+					<Dotted/>
 				</div>
 			</el-col>
-			<el-col :span="12">
+			<el-col :span="12" class="list-item">
 				<div class="grid-content bg-purple-light">
-					<Dotted/>
+					<Stacked/>
 				</div>
 			</el-col>
 		</el-row>
@@ -32,5 +32,13 @@
 	}
 </script>
 <style scoped>
-
+.base-charts {
+	width: 100%;
+	overflow: hidden;
+}
+.list-item {
+	padding-left: 20px;
+	padding-right: 20px;
+	overflow: hidden;
+}
 </style>

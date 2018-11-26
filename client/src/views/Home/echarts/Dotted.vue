@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<div id="listChart"  :style="{width: '100%', height: '500px'}"></div>
+		<div id="listChart" ref="myChart" :style="{width: '100%', height: '500px'}"></div>
 	</div>
 </template>
 
@@ -15,24 +15,21 @@
 				dottedBase: +new Date()
 			};
 		},
-		created() {
-			this.drawLine();
+		mounted() {
+			this.$nextTick(()=>{
+				this.drawLine();
+			})
 		},
 		methods: {
 			drawLine() {
 				// 基于准备好的dom，初始化echarts实例
-				let listChart = this.$echarts.init(document.getElementById('listChart'));
+				// let listChart = this.$echarts.init(document.getElementById('listChart'));
+				let listChart = this.$echarts.init(this.$refs.myChart)
 				console.log(listChart)
-				// let listChart = this.$refs.listChart
-				// console.log(listChart)
-				// var category = [];
-				// var dottedBase = +new Date();
-				/* var lineData = [];
-				var barData = []; */
 
 				for (let i = 0; i < 20; i++) {
 					let date = new Date(this.dottedBase += 3600 * 24 * 1000);
-					console.log(date)
+					// console.log(date)
 					this.category.push([
 						date.getFullYear(),
 						date.getMonth() + 1,
@@ -42,16 +39,13 @@
 					let d = Math.random() * 200;
 					this.barData.push(b)
 					this.lineData.push(d + b);
-				}
-				listChart.setOption = {
-					// backgroundColor: '#0f375f',
+				};
+				listChart.setOption({
+					backgroundColor: '#0f375f',
 					tooltip: {
 						trigger: 'axis',
 						axisPointer: {
-							type: 'shadow',
-							label: {
-								backgroundColor: '#0f375f'
-							}
+							type: 'shadow'
 						}
 					},
 					legend: {
@@ -150,7 +144,7 @@
 						z: -10,
 						data: this.lineData
 					}]
-				};
+				})
 				console.log(listChart.setOption)
 			}
 		}
