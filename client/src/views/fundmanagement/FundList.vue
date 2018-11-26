@@ -216,6 +216,9 @@ export default {
 			handleDelete(row){
 				console.log(row)	
 				this.visible = true
+				if(this.row){
+					console.log(1)
+				}
 			},
 			getDeleteVisible(index,row){
 				// console.log(row)

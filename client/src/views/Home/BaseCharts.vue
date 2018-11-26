@@ -1,33 +1,35 @@
 <template>
-  <div class="base">
-      <div id="main" style="width:600px;height:400px;"></div>
-  </div>
+	<div class="base">
+		<el-row>
+			<el-col :span="12">
+				<div class="grid-content bg-purple">
+					<Stacked/>
+				</div>
+			</el-col>
+			<el-col :span="12">
+				<div class="grid-content bg-purple-light">
+					<Dotted/>
+				</div>
+			</el-col>
+		</el-row>
+	</div>
 </template>
 
 <script>
-// @ is an alias to /src
-export default {
-  name: 'chart',
-	data() {
-		return {
-			user:{
-				USERCODE:'4105230166',
-				USERPASSWORD:'000000'
+	import Stacked from './echarts/Stacked'
+	import Dotted from './echarts/Dotted'
+	export default {
+	  name: 'Nofind',
+		data(){
+			return {
+				
 			}
+		},
+		components:{
+			Stacked,
+			Dotted
 		}
-	},
-	methods:{
-		getuserInfo() {
-			this.$axios.post('/api/logon.do',this.user).then(res => {
-				console.log(res)
-			})
-		}
-	},
-	created() {
-		// this.getChart();
-		this.getuserInfo()
 	}
-}
 </script>
 <style scoped>
 

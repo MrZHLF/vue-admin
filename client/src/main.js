@@ -6,8 +6,14 @@ import axios from './http'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
  import moment from 'moment'
- 
+ import echarts from 'echarts'
+
+Vue.prototype.$echarts = echarts 
+
+
  import VueAMap from 'vue-amap';
+ 
+ 
  Vue.use(VueAMap);
 Vue.config.productionTip = false
 

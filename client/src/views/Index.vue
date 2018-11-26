@@ -2,23 +2,35 @@
   <div class="index">
       <Header></Header>
       <LeftMenu></LeftMenu>
-      <div class="rightContainer">
+      <div class="rightContainer" :class="{'content-collapse':collapse}">
         <router-view></router-view>
       </div>
-      
   </div>
 </template>
 
 <script>
 import Header from '../components/Header'
 import LeftMenu from '../components/LeftMenu'
+import bus from '../common/bus'
 // @ is an alias to /src
 export default {
   name: 'Index',
+	data() {
+		return {
+			collapse: false
+		}
+	},
   components:{
     Header,
     LeftMenu
-  }
+  },
+	created() {
+		//内容区域跟随变化
+		 bus.$on('collapse', msg => {
+			console.log(msg)
+			this.collapse = msg;
+		})
+	}
 }
 </script>
 <style>
@@ -27,6 +39,9 @@ export default {
   height: 100%;
   overflow: hidden;
 }
+.rightContainer.content-collapse {
+	left: 100px;
+}
 .rightContainer {
   position: relative;
   top: 0;
@@ -34,5 +49,6 @@ export default {
   width: calc(100% - 180px);
   height: calc(100% - 71px);
   overflow: auto;
+	transition: left .3s ease-in-out;
 }
 </style>

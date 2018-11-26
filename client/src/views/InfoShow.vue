@@ -28,7 +28,7 @@ export default {
   name: 'infoshow',
     computed:{
         users() {
-            return this.$store.getters.user
+          return this.$store.getters.user
         }
     },
 }
