@@ -13,6 +13,8 @@ import ListUser from "./views/ListUser";
 import MapList from "./views/MapList";
 import ChinaTabsList from "./views/Investment/ChinaTabsList";
 import ChinaTouziList from "./views/Investment/ChinaTouziList";
+import FundPosition from "./views/capitalData/FundPosition";
+
 Vue.use(Router)
 
 const router = new Router({
@@ -35,7 +37,8 @@ const router = new Router({
         { path: "/listuser", name: "listuser", component: ListUser },
         { path: "/maplist", name: "maplist", component: MapList },
         { path: "/chinaTabsList", name: "ChinaTabsList", component: ChinaTabsList },
-        { path: "/chinaTouziList", name: "chinaTouziList", component: ChinaTouziList }
+        { path: "/chinaTouziList", name: "chinaTouziList", component: ChinaTouziList },
+        { path: "/fundPosition", name: "fundPosition", component: FundPosition },
       ]
     },
     {

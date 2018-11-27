@@ -83,7 +83,7 @@ export default {
           ]
         },
         {
-          icon: "el-icon-setting",
+          icon: "el-icon-bell",
           name: "投资管理",
           path: "list",
           children: [
@@ -95,6 +95,17 @@ export default {
               path: "chinaTabsList",
               name: "区域投资"
             }
+          ]
+				},
+				{
+          icon: "el-icon-tickets",
+          name: "资金数据",
+          path: "position",
+          children: [
+            {
+              path: "fundPosition",
+              name: "投资分布"
+						}
           ]
         }
       ]

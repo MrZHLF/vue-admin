@@ -1,6 +1,6 @@
 <template>
 	<div class="list">
-		<div id="myChart" :style="{width: '100%', height: '500px'}"></div>
+		<div id="myChart" :style="{width: '100%', height: '400px'}"></div>
 	</div>
 </template>
 
@@ -20,6 +20,7 @@
 				// 基于准备好的dom，初始化echarts实例
 				let myChart = this.$echarts.init(document.getElementById('myChart'))
 				myChart.setOption({
+					backgroundColor: '#0f375f',
 						tooltip : {
 							trigger: 'axis',
 							axisPointer: {
@@ -30,7 +31,11 @@
 							}
 						},
 						legend: {
-							data:['邮件营销','联盟广告','视频广告','直接访问','搜索引擎']
+							data:['邮件营销','联盟广告','视频广告','直接访问','搜索引擎'],
+							//标题字体颜色
+							textStyle: {
+								color: '#fff'
+							}
 						},
 						toolbox: {
 							feature: {
@@ -47,12 +52,24 @@
 							{
 								type : 'category',
 								boundaryGap : false,
-								data : ['周一','周二','周三','周四','周五','周六','周日']
+								data : ['周一','周二','周三','周四','周五','周六','周日'],
+								axisLine: {
+									//x轴坐标字体颜色
+									lineStyle: {
+										color: '#fff'
+									}
+								}
 							}
 						],
 						yAxis : [
 							{
-								type : 'value'
+								type : 'value',
+								axisLine: {
+									//y轴坐标字体颜色
+									lineStyle: {
+										color: '#fff'
+									}
+								}
 							}
 						],
 						series : [
@@ -61,7 +78,7 @@
 								type:'line',
 								stack: '总量',
 								areaStyle: {},
-								data:[120, 132, 101, 134, 90, 230, 210]
+								data:[120, 132, 101, 134, 90, 230, 210],
 							},
 							{
 								name:'联盟广告',
@@ -91,8 +108,8 @@
 								label: {
 									normal: {
 										show: true,
-										position: 'top'
-									}
+										position: 'top',								
+									},
 								},
 								areaStyle: {normal: {}},
 								data:[820, 932, 901, 934, 1290, 1330, 1320]
