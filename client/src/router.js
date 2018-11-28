@@ -5,7 +5,9 @@ import Register from './views/register/Register'
 import Login from "./views/logo/Login";
 import Nofind from './views/404'
 import Home from './views/Home'
-import InfoShow from "./views/InfoShow";
+import InfoShow from "./views/information/InfoShow";
+import Editor from "./views/information/Editor";
+import Markdown from "./views/information/Markdown";
 import FundList from "./views/fundmanagement/FundList";
 import PayList from "./views/fundmanagement/PayList";
 import Staff from "./views/Staff";
@@ -31,7 +33,9 @@ const router = new Router({
         { path: "", component: Home },
         { path: "/home", name: "home", component: Home },
         { path: "/Infoshow", name: "Infoshow", component: InfoShow },
-        { path: "/foundlist", name: "fundlist", component: FundList },
+				{ path: "/editor", name: "editor", component: Editor },
+				{ path: "/fundList", name: "fundList", component: FundList },
+        { path: "/markdown", name: "markdown", component: Markdown },
 				{ path: "/payList", name: "payList", component: PayList },
         { path: "/staff", name: "staff", component: Staff },
         { path: "/listuser", name: "listuser", component: ListUser },

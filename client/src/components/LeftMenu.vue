@@ -79,7 +79,15 @@ export default {
             {
               path: "infoshow",
               name: "个人信息"
-            }
+            },
+						{
+							path: "editor",
+							name: "富文本编辑器"
+						},
+						{
+							path: "markdown",
+							name: "Markdown编辑器"
+						}
           ]
         },
         {
