@@ -50,7 +50,15 @@ module.exports = {
                 pathRewrite: {
                     '^/api': ''
                 }
-            }
+            },
+			'/apis': {
+				target: 'https://wd3103269262dvadrd.wilddogio.com/apis/',
+				ws: true,
+				changOrigin: true,
+				pathRewrite: {
+					'^/apis': ''
+				}
+			}
         },
         before: app => { }
     }

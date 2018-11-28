@@ -10,13 +10,9 @@
 </template>
 
 <script>
-/* import 'quill/dist/quill.core.css'
-import 'quill/dist/quill.snow.css'
-import 'quill/dist/quill.bubble.css' */
-
 import { quillEditor } from 'vue-quill-editor'
 export default {
-  name: 'HelloWorld',
+  name: 'edit',
   data () {
     return {
       content: '',
@@ -34,8 +30,13 @@ export default {
       },
       submit(){
           console.log(this.content);
-          this.$message.success('提交成功！');
-          this.content=""
+		  if(this.content === '') {
+			this.$message.warning('内容不能为空！');
+		  } else {
+			this.$axios.post("/apis/edit.json",this.content).then(res => {
+				console.log(res)  
+			}) 
+		  }  
       }
   }
 }

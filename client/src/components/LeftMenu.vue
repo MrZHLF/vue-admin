@@ -62,7 +62,7 @@ export default {
           path: "fund",
           children: [
             {
-              path: "foundlist",
+              path: "fundList",
               name: "资金流水"
             },
 						{
