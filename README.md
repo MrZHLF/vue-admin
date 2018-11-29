@@ -35,13 +35,13 @@
 	- 404
 
 ## 项目编译和运行
-  1. 可以直接在git上下载项目源码。把github下载到本地，
+  + 可以直接在git上下载项目源码。把github下载到本地，
 		git clone [](https://github.com/MrZHLF/vue-admin.git)
-	2. 进入node-api-element当前页面初始化
+	+ 进入node-api-element当前页面初始化
 		cnpm install
-	3.进入client项目目录中
+	+ 进入client项目目录中
 		cnpm install
-	4. 所有依赖安装成功后执行启动命令在当前目录启动,不要在client进行启动，已经配置好前后端联调
+  + 所有依赖安装成功后执行启动命令在当前目录启动,不要在client进行启动，已经配置好前后端联调
 	  npm run dev 
 	  如果显示一下内容说明安装成功
 	  I  Your application is running here: http://localhost:8080
@@ -49,7 +49,7 @@
 ## 成果展示
  ![avatar](./img/1.png)
  ![avatar](./img/2.png)
-
+ ![avatar](./img/3.png)
  
  
 更新中...
