@@ -24,6 +24,11 @@
 						</el-tooltip>
 					</div> -->
 					<div class="btn-fullscreen icon-font">
+						<el-tooltip class="item" effect="dark" content="锁屏" placement="bottom">
+							<i class="iconfont icon-bofangqi-suoping" @click="handleLockScreen"></i>
+						</el-tooltip>
+					</div>
+					<div class="btn-fullscreen icon-font">
 						<el-tooltip class="item" effect="dark" content="跳转到github" placement="bottom">
 							<a href="https://github.com/MrZHLF/vue-admin" target="_blank">
 								<i class="iconfont icon-github"></i>
@@ -84,6 +89,26 @@
 						this.logout()
 						break;
 				}
+			},
+			handleLockScreen(){
+				this.$confirm('是否要进行锁屏?', '提示', {
+				  confirmButtonText: '确定',
+				  cancelButtonText: '取消',
+				  type: 'warning'
+				}).then(() => {
+				  this.$message({
+					type: 'success',
+					message: '锁屏成功!'
+				  });
+				  setTimeout(() => {
+					  this.$router.push('/lock')
+				  },100)
+				}).catch(() => {
+				  this.$message({
+					type: 'info',
+					message: '锁屏失效'
+				  });          
+				});
 			},
 			showInfoList() {
 				// console.log('下来菜单')

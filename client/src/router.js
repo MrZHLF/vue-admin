@@ -16,7 +16,7 @@ import MapList from "./views/MapList";
 import ChinaTabsList from "./views/Investment/ChinaTabsList";
 import ChinaTouziList from "./views/Investment/ChinaTouziList";
 import FundPosition from "./views/capitalData/FundPosition";
-
+import Lock from './views/Lock.vue'
 Vue.use(Router)
 
 const router = new Router({
@@ -55,6 +55,11 @@ const router = new Router({
       name: "login",
       component: Login
     },
+		{
+			path: "/lock",
+			name: "lock",
+			component: Lock
+		},
     {
       path: "*",
       name: "Nofind",
