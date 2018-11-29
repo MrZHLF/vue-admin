@@ -10,6 +10,7 @@ import 'element-ui/lib/theme-chalk/index.css'
 import VueQuillEditor from 'vue-quill-editor'
 Vue.prototype.$echarts = echarts 
 
+
 Vue.use(VueQuillEditor)
 
  import VueAMap from 'vue-amap';

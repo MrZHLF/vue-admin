@@ -104,11 +104,11 @@
             type="primary"
             size="small"
             @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
-          <!-- <el-button
+          <el-button
             size="small"
             type="danger"
-            @click="handleDelete(scope.$index, scope.row)">删除</el-button> -->
-						<el-popover
+            @click="handleDelete(scope.$index, scope.row)">删除</el-button>
+						<!-- <el-popover
 							placement="top"
 							width="160"
 							v-model="visible">
@@ -118,7 +118,7 @@
 								<el-button type="primary" size="mini" @click="getDeleteVisible(scope.$index, scope.row)">确定</el-button>
 							</div>
 							<el-button slot="reference" @click="handleDelete(scope.row)">删除</el-button>
-						</el-popover>
+						</el-popover> -->
         </template>
       </el-table-column>
     </el-table>
@@ -204,22 +204,36 @@ export default {
           id: row._id
         }
       },
-     /* handleDelete(index,row){  //删除数据
-        this.$axios.delete(`/api/profiles/delete/${row._id}`).then(res => {
-          this.$message({
-            message: '删除成功',
-            type: 'success'
-          })
-        })
-        this.getProfiles()  
-      }, */
-			handleDelete(row){
+     handleDelete(index,row){  //删除数据
+        
+				this.$confirm("此操作将永久删除该文件, 是否继续?", "提示", {
+					confirmButtonText: "确定",
+					cancelButtonText: "取消",
+					type: "warning"
+				})
+					.then(() => {
+						this.$axios.delete(`/api/profiles/delete/${row._id}`).then(res => {
+							this.$message({
+								message: '删除成功',
+								type: 'success'
+							})
+						})
+						this.getProfiles()  
+					})
+					.catch(() => {
+						this.$message({
+							type: "info",
+							message: "已取消删除"
+						});
+					});
+      },
+		/* 	handleDelete(row){
 				console.log(row)	
 				this.visible = true
 				if(this.row){
 					console.log(1)
 				}
-			},
+			}, */
 			getDeleteVisible(index,row){
 				// console.log(row)
 				this.$axios.delete(`/api/profiles/delete/${row._id}`).then(res => {
