@@ -8,8 +8,7 @@
 		 			:collapse="collapse" 
 					:default-active="$route.path"
 		 			background-color="#324057" 
-		 			text-color="#fff"
-		 			active-text-color="#409eff">
+		 			text-color="#fff">
 					<Menu :items='items'/>
 				</el-menu>
 			</el-col>	

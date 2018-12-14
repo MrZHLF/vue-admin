@@ -11,18 +11,6 @@
 			</el-col>
 			<el-col :span="6" class="user">
 				<div class="userinfo">
-					<!-- <div class="btn-fullscreen icon-font">
-							<el-dropdown trigger="click" class='international' @command="handleSetLanguage">
-								<div>
-									<i class="iconfont icon-zhongyingwenqiehuan"></i>
-								</div>
-								<el-dropdown-menu slot="dropdown">
-									<el-dropdown-item command="zh" :disabled="language==='zh'">中文</el-dropdown-item>
-									<el-dropdown-item command="en" :disabled="language==='en'">English</el-dropdown-item>
-								</el-dropdown-menu>
-							</el-dropdown>
-						</el-tooltip>
-					</div> -->
 					<div class="btn-fullscreen icon-font">
 						<el-tooltip class="item" effect="dark" content="锁屏" placement="bottom">
 							<i class="iconfont icon-bofangqi-suoping" @click="handleLockScreen"></i>
@@ -33,6 +21,11 @@
 							<a href="https://github.com/MrZHLF/vue-admin" target="_blank">
 								<i class="iconfont icon-github"></i>
 							</a>
+						</el-tooltip>
+					</div>
+					<div class="btn-fullscreen icon-font">
+						<el-tooltip class="item" effect="dark" content="换色" placement="bottom">
+							<theme/>
 						</el-tooltip>
 					</div>
 					<!-- 全屏显示 -->
@@ -65,6 +58,7 @@
 
 <script>
 	import bus from '../common/bus'
+	import theme from '../common/theme'
 	// @ is an alias to /src
 	export default {
 		name: 'header-nav',
@@ -157,6 +151,9 @@
 				}
 				this.fullscreen = !this.fullscreen;
 			}
+		},
+		components:{
+			theme
 		}
 	}
 </script>
