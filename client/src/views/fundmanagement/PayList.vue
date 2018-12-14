@@ -124,6 +124,7 @@ export default {
 	methods: {
 		getList() {
 			this.$axios.get('https://www.easy-mock.com/mock/5bee2bf96b3691268016a10f/getPayList').then(res => {
+				console.log(res)
 				const data = res.data;
 				if(data.status === 1) {
 					this.tableData = data.data

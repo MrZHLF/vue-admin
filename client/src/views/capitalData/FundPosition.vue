@@ -24,7 +24,7 @@ export default {
         },
         tooltip: {
           trigger: "item",
-          formatter: "{a} <br/>{b} : {c}万吨"
+          formatter: "{a} <br/>{b} : {c}万元"
         },
 
         dataRange: {

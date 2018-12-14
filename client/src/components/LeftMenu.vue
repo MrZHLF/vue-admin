@@ -1,72 +1,58 @@
 <template>
 	<div class="sidebar">
-		<el-row class="menu_page">
-			<el-col>
-				<el-menu mode="vertical" class="el-menu-vertical-demo" :collapse="collapse" background-color="#324057" text-color="#fff"
-				 active-text-color="#409eff">
-					<router-link to='/home'>
-						<el-menu-item index="0">
-							<i class="el-icon-menu"></i>
-							<span slot="title">首页</span>
-						</el-menu-item>
-					</router-link>
-					<router-link to='/staff'>
-						<el-menu-item index="1">
-							<i class="el-icon-service"></i>
-							<span slot="title">用户信息</span>
-						</el-menu-item>
-					</router-link>
-					<router-link to='/listuser'>
-						<el-menu-item index="2">
-							<i class="el-icon-mobile-phone"></i>
-							<span slot="title">信息列表</span>
-						</el-menu-item>
-					</router-link>
-					<template v-for="item in items">
-						<el-submenu v-if="item.children" :index="item.path" :key="item.path">
-							<template slot="title">
-								<i :class="item.icon"></i>
-								<span slot="title">{{item.name}}</span>
-							</template>
-							<router-link v-for="(citem,cindex) in item.children" :to="citem.path" :key="cindex">
-								<el-menu-item :index='citem.path'>
-									<span slot="title">{{citem.name}}</span>
-								</el-menu-item>
-							</router-link>
-						</el-submenu>
-					</template>
-					<router-link to='/maplist'>
-						<el-menu-item index="3">
-							<i class="el-icon-location-outline"></i>
-							<span slot="title">地图展示</span>
-						</el-menu-item>
-					</router-link>
+		 <el-row class="menu_page">
+		 	<el-col>
+		 		<el-menu 
+		 			mode="vertical" 
+		 			class="el-menu-vertical-demo" 
+		 			:collapse="collapse" 
+					:default-active="$route.path"
+		 			background-color="#324057" 
+		 			text-color="#fff"
+		 			active-text-color="#409eff">
+					<Menu :items='items'/>
 				</el-menu>
-			</el-col>
+			</el-col>	
 		</el-row>
 	</div>
 </template>
 
 <script>
 	import bus from '../common/bus';
+	import Menu from './Menu'
 // @ is an alias to /src
 export default {
   name: "LeftMenu",
   data() {
     return {
-		 collapse: false,
+			collapse: false,
       items: [
+				{
+					icon: "el-icon-menu",
+					name: "首页",
+					path: "/home",
+				},
+				{
+					icon: "el-icon-service",
+					name: "用户信息",
+					path: "/staff",
+				},
+				{
+					icon: "el-icon-mobile-phone",
+					name: "信息列表",
+					path: "/listuser",
+				},
         {
           icon: "el-icon-document",
           name: "资金管理",
           path: "fund",
           children: [
             {
-              path: "fundList",
+              path: "/fundList",
               name: "资金流水"
             },
 						{
-							path: "payList",
+							path: "/payList",
 							name: "支付单据"
 						}
           ]
@@ -74,33 +60,49 @@ export default {
         {
           icon: "el-icon-setting",
           name: "信息管理",
-          path: "info",
+          path: "/info",
           children: [
             {
-              path: "infoshow",
+              path: "/infoshow",
               name: "个人信息"
             },
 						{
-							path: "editor",
-							name: "富文本编辑器"
-						},
-						{
-							path: "markdown",
-							name: "Markdown编辑器"
+							path: "/editor",
+							name: "表单处理",
+								children:[
+									{
+										path: "/editor",
+										name: "富文本编辑器"
+									},
+									{
+										path: "/markdown",
+										name: "Markdown编辑器"
+									},
+									{
+										path: "/markdown",
+										name: "文章",
+										children:[
+											{
+												path: "/showFundArticle",
+												name: "文章列表"
+											}
+										]
+									},
+							]
 						}
           ]
         },
         {
           icon: "el-icon-bell",
           name: "投资管理",
-          path: "list",
+          path: "/list",
           children: [
             {
-              path: "chinaTouziList",
+              path: "/chinaTouziList",
               name: "省份投资"
 						},
 						{
-              path: "chinaTabsList",
+              path: "/chinaTabsList",
               name: "区域投资"
             }
           ]
@@ -108,18 +110,26 @@ export default {
 				{
           icon: "el-icon-tickets",
           name: "资金数据",
-          path: "position",
+          path: "/position",
           children: [
             {
-              path: "fundPosition",
+              path: "/fundPosition",
               name: "投资分布"
 						}
           ]
-        }
+        },
+				{
+					icon: "el-icon-location-outline",
+					name: "地图展示",
+					path: "/maplist",
+				},
       ]
     }
   },
-	created(){
+	components:{
+		Menu
+	},
+	created() {
 		// 通过 Event Bus 进行组件间通信，来折叠侧边栏
 		bus.$on('collapse', msg => {
 			this.collapse = msg;
@@ -129,46 +139,50 @@ export default {
 </script>
 <style scoped>
 .menu_page {
-  position: fixed;
-  top: 71px;
-  left: 0;
-  min-height: 100%;
-  background-color: #324057;
-  z-index: 99;
-}
-.sidebar::-webkit-scrollbar{
-	width: 0;
-}
-.sidebar-el-menu:not(.el-menu--collapse){
-	width: 250px;
-}
-.el-menu {
-  border: none;
-}
+		position: fixed;
+		top: 71px;
+		left: 0;
+		min-height: 100%;
+		background-color: #324057;
+		z-index: 99;
+	}
 
-.fa-margin {
-  margin-right: 5px;
-}
+	.sidebar::-webkit-scrollbar {
+		width: 0;
+	}
 
-.el-menu-vertical-demo:not(.el-menu--collapse) {
-  width: 180px;
-  min-height: 400px;
-}
+	.sidebar-el-menu:not(.el-menu--collapse) {
+		width: 250px;
+	}
 
-.el-menu-vertical-demo {
-  width: 64px;
-}
+	.el-menu {
+		border: none;
+		z-index: 1;
+	}
 
-.el-submenu .el-menu-item {
-  min-width: 180px;
-}
+	.fa-margin {
+		margin-right: 5px;
+	}
 
-.hiddenDropdown,
-.hiddenDropname {
-  display: none;
-}
+	.el-menu-vertical-demo:not(.el-menu--collapse) {
+		width: 180px;
+		min-height: 400px;
+	}
 
-a {
-  text-decoration: none;
-}
+	.el-menu-vertical-demo {
+		width: 64px;
+	}
+
+	.el-submenu .el-menu-item {
+		min-width: 180px;
+	}
+
+	.hiddenDropdown,
+	.hiddenDropname {
+		display: none;
+	}
+
+	a {
+		text-decoration: none;
+	}
 </style>

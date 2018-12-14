@@ -8,6 +8,7 @@ import Home from './views/Home'
 import InfoShow from "./views/information/InfoShow";
 import Editor from "./views/information/Editor";
 import Markdown from "./views/information/Markdown";
+import ShowFundArticle from "./views/information/article/ShowFundArticle";
 import FundList from "./views/fundmanagement/FundList";
 import PayList from "./views/fundmanagement/PayList";
 import Staff from "./views/Staff";
@@ -17,6 +18,8 @@ import ChinaTabsList from "./views/Investment/ChinaTabsList";
 import ChinaTouziList from "./views/Investment/ChinaTouziList";
 import FundPosition from "./views/capitalData/FundPosition";
 import Lock from './views/Lock.vue'
+
+
 Vue.use(Router)
 
 const router = new Router({
@@ -43,6 +46,7 @@ const router = new Router({
         { path: "/chinaTabsList", name: "ChinaTabsList", component: ChinaTabsList },
         { path: "/chinaTouziList", name: "chinaTouziList", component: ChinaTouziList },
         { path: "/fundPosition", name: "fundPosition", component: FundPosition },
+				{ path: "/showFundArticle", name: "showFundArticle", component: ShowFundArticle }
       ]
     },
     {
@@ -66,7 +70,7 @@ const router = new Router({
       component: Nofind
     }
   ],
-  mode: "history"
+  // mode: "history"
 });
 
 // 路由守卫
