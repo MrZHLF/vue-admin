@@ -9,8 +9,7 @@ import 'element-ui/lib/theme-chalk/index.css'
  import echarts from 'echarts'
 import VueQuillEditor from 'vue-quill-editor'
 Vue.prototype.$echarts = echarts 
-
-
+Vue.prototype.$moment = moment 
 Vue.use(VueQuillEditor)
 
  import VueAMap from 'vue-amap';

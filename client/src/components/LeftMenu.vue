@@ -144,8 +144,11 @@ export default {
 		min-height: 100%;
 		background-color: #324057;
 		z-index: 99;
+		
 	}
-
+.sidebar {
+	overflow: hidden;
+}
 	.sidebar::-webkit-scrollbar {
 		width: 0;
 	}
@@ -156,7 +159,7 @@ export default {
 
 	.el-menu {
 		border: none;
-		z-index: 1;
+		z-index: 9999;
 	}
 
 	.fa-margin {
@@ -169,7 +172,7 @@ export default {
 	}
 
 	.el-menu-vertical-demo {
-		width: 64px;
+		width: 49px;
 	}
 
 	.el-submenu .el-menu-item {

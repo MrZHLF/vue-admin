@@ -4,13 +4,14 @@
 			<router-link :to="item.path" v-if="item.path">
 				<el-menu-item v-if="item.children ==null || item.children.length == 0" :index="item.path">
 						<i :class="item.icon"></i>
-						{{item.name}}
+						<span>{{item.name}}</span>
 				</el-menu-item>
 			</router-link>
+			<!-- 判断是否有二级路由 -->
 			<el-submenu v-if="item.children" :index="item.path">
 				<template slot="title">
 					<i :class="item.icon"></i>
-					{{item.name}}
+					<span>{{item.name}}</span>
 				</template>
 				<!--递归组件，把遍历的值传回子组件，完成递归调用-->
 				<Menu :items="item.children"/>
@@ -40,7 +41,7 @@
 // 		}
 	};
 </script>
-<style scoped>
+<style >
 	.menu_page {
 		position: fixed;
 		top: 71px;
@@ -83,7 +84,9 @@
 	.hiddenDropname {
 		display: none;
 	}
-
+i.el-submenu__icon-arrow.el-icon-arrow-right {
+	display: none !important;
+}
 	a {
 		color:#ccc;
 		text-decoration: none;

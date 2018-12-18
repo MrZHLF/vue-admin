@@ -12,6 +12,7 @@
 import Header from '../components/Header'
 import LeftMenu from '../components/LeftMenu'
 import bus from '../common/bus'
+ // import moment from 'moment'
 // @ is an alias to /src
 export default {
   name: 'Index',
@@ -29,8 +30,16 @@ export default {
 		 bus.$on('collapse', msg => {
 			console.log(msg)
 			this.collapse = msg;
-		})
-	}
+		}),
+		this.user()
+	},
+	methods: {
+		user() {
+			var data = new Date();
+			var momentDate = this.$moment(data).format('YYYY-MM-DD')
+			console.log(momentDate)
+		}
+	},
 }
 </script>
 <style>
