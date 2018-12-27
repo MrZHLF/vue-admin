@@ -39,11 +39,11 @@
                             </div>
                             <div class="card-body-list">
                                 <div class="title">Vue:</div>
-                                <el-progress class="progress" :percentage="60" status="success"></el-progress>
+                                <el-progress class="progress" :percentage="60" color="#67c23a"></el-progress>
                             </div>
                             <div class="card-body-list">
                                 <div class="title">Node.js:</div>
-                                <el-progress class="progress" :percentage="20" status="exception"></el-progress>
+                                <el-progress class="progress" :percentage="20" color="#f56c6c"></el-progress>
                             </div>
                         </div>
                     </div>
@@ -91,6 +91,20 @@
                     <span>2019年目标</span>
                     <!-- <el-button style="float: right; padding: 3px 0" type="text">操作按钮</el-button> -->
                   </div>
+                  <el-table
+                    :data="todoList"
+                  >
+                    <el-table-column width="40">
+                        <template slot-scope="scope">
+                            <el-checkbox v-model="scope.row.status"></el-checkbox>
+                        </template>
+                    </el-table-column>
+                    <el-table-column>
+                        <template slot-scope="scope">
+                            <div class="todo-item" :class="{'todo-item-del': scope.row.status}">{{scope.row.title}}</div>
+                        </template>
+                    </el-table-column> 
+                  </el-table>
                 </el-card>
             </el-col>
         </el-row>
@@ -102,6 +116,20 @@
 // @ is an alias to /src
 export default {
   name: 'infoshow',
+    data(){
+        return {
+            todoList:[
+                {
+                    status:true,
+                    title:"学会Vue"
+                },
+                {
+                    status:false,
+                    title:"2019要学会React"
+                }
+            ]
+        }
+    },
     computed:{
         users() {
           return this.$store.getters.user;
