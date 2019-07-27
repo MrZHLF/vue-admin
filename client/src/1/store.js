@@ -12,8 +12,6 @@ const types = {
 const state = {
   isAuthenticated:false,  //授权
   user:{},  //用户登录
-	// 中英文
-	// language: Cookies.get('language') || 'zh'
 }
 
 const getters = {
@@ -38,11 +36,6 @@ const mutations = {
       state.user = {}
     }
   },
-	// 中英文
-/* 	SET_LANGUAGE: (state, language) => {
-		state.language = language
-		Cookies.set('language', language)
-	}, */
 }
 
 const actions = {
@@ -56,10 +49,6 @@ const actions = {
     commit(types.SET_AUTHENTICATED,false)
     commit(types.SET_USER,null)
   },
-	// 中英文
-	/* setLanguage({ commit }, language) {
-		commit('SET_LANGUAGE', language)
-	}, */
 };
 
 export default new Vuex.Store({

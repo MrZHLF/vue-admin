@@ -1,0 +1,51 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\Administrator\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js install
+
+PATH: 
+  C:\Users\Administrator\bin;D:\git\Git\mingw64\bin;D:\git\Git\usr\local\bin;D:\git\Git\usr\bin;D:\git\Git\usr\bin;D:\git\Git\mingw64\bin;D:\git\Git\usr\bin;C:\Users\Administrator\bin;D:\nginx\nginx-1.15.7;D:\nvm\nvm-setup\nvm;C:\Users\Administrator\.nvm;F:\redis;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\Program Files (x86)\AMD\ATI.ACE\Core-Static;E:\mongodb\bin;D:\git\Git\cmd;D:\svn\bin;D:\nvm\nvm-setup\nvm;C:\Program Files\nodejs;D:\putty;C:\Users\Administrator\AppData\Roaming\npm;D:\前端开的工具\vscode\Microsoft VS Code\bin;D:\heroku\bin;D:\nvm\nvm-setup\nvm;C:\Program Files\nodejs;D:\git\Git\usr\bin\vendor_perl;D:\git\Git\usr\bin\core_perl
+
+Yarn version: 
+  1.9.4
+
+Node version: 
+  10.11.0
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: ENOENT: no such file or directory, copyfile 'C:\Users\Administrator\AppData\Local\Yarn\Cache\v2\npm-ansi-regex-3.0.0-ed0317c322064f79466c02966bddb605ab37d998\package.json' -> 'D:\vue-list\vue-admin\node_modules\cliui\node_modules\ansi-regex\package.json'
+
+npm manifest: 
+  {
+    "name": "api-element",
+    "version": "1.0.0",
+    "description": "",
+    "main": "server.js",
+    "scripts": {
+      "client-install": "npm install --prefix client",
+      "client": "npm start --prefix client",
+      "start": "node server.js",
+      "server": "nodemon server.js",
+      "dev": "concurrently \"npm run server\" \"npm run client\""
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+      "bcrypt": "^3.0.2",
+      "body-parser": "^1.18.3",
+      "concurrently": "^4.0.1",
+      "express": "^4.16.4",
+      "gravatar": "^1.6.0",
+      "jsonwebtoken": "^8.3.0",
+      "mongoose": "^5.3.4",
+      "passport": "^0.4.0",
+      "passport-jwt": "^4.0.0"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

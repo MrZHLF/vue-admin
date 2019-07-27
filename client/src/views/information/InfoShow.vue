@@ -106,6 +106,17 @@
                     </el-table-column> 
                   </el-table>
                 </el-card>
+                <!-- 日历 -->
+                <div class="box-card" style="margin-top: 20px">
+                    <div class="el-card is-hover-shadow" style="height: 400px">
+                        <div class="el-card__header">
+                            <span>时钟</span>
+                        </div>
+                        <div class="el-card__body">
+                            <Clock/>
+                        </div>
+                    </div>
+                </div>
             </el-col>
         </el-row>
     </div>
@@ -113,6 +124,7 @@
 </template>
 
 <script>
+import Clock from './Clock'
 // @ is an alias to /src
 export default {
   name: 'infoshow',
@@ -135,8 +147,8 @@ export default {
           return this.$store.getters.user;
         }
     },
-    created(){
-         // console.log(this.$store.getters.user)
+    components: {
+        Clock
     }
 }
 </script>

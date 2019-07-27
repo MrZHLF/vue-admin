@@ -9,6 +9,17 @@
 				</div>
 				<span class="title">后台管理系统</span>
 			</el-col>
+			<!-- <el-col :span="6">
+				<div class="music">
+					<aplayer 
+						autoplay
+						listmaxheight="30px"
+						:music="music"
+						:showlrc="showlrc"
+					>
+					</aplayer>
+				</div>
+			</el-col> -->
 			<el-col :span="6" class="user">
 				<div class="btn-fullscreen icon-font">
 					
@@ -71,6 +82,13 @@
 				collapse: false, //菜单栏是否闭合
 				fullscreen: false,
 				showlrc:true,
+				// music:{
+				// 	title:"",
+				// 	author:"",
+				// 	url:"",
+				// 	pic:"",
+				// 	lrc:""
+				// }
 			}
 		},
 		computed: {
@@ -78,6 +96,19 @@
 				return this.$store.getters.user
 			},
 		},
+		// created(){
+		// 	this.$axios.get('https://api.apiopen.top/searchMusic?name=%E6%9D%8E%E7%99%BD').then(res => {
+		// 		this.music = {
+		// 			title: res.data.result[0].title,
+		// 			author: res.data.result[0].author,
+		// 			url :res.data.result[0].url,
+		// 			author: res.data.result[0].author,
+		// 			pic: res.data.result[0].pic,
+		// 			lrc :res.data.result[0].lrc,
+		// 		}
+		// 		console.log(this.music)
+		// 	})
+		// },
 		methods: {
 			setDialogInfo(cmditem) {
 				switch (cmditem) {

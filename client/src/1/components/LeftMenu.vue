@@ -21,31 +21,31 @@
 </template>
 
 <script>
-import bus from "../common/bus";
-import Menu from "./Menu";
-import Bscroll from 'better-scroll'
+	import bus from '../common/bus';
+	import Menu from './Menu'
+	import Bscroll from 'better-scroll'
 // @ is an alias to /src
 export default {
   name: "LeftMenu",
   data() {
     return {
-      collapse: false,
+			collapse: false,
       items: [
-        {
-          icon: "el-icon-menu",
-          name: "首页",
-          path: "/home"
-        },
-        {
-          icon: "el-icon-service",
-          name: "用户信息",
-          path: "/staff"
-        },
-        {
-          icon: "el-icon-mobile-phone",
-          name: "信息列表",
-          path: "/listuser"
-        },
+				{
+					icon: "el-icon-menu",
+					name: "首页",
+					path: "/home",
+				},
+				{
+					icon: "el-icon-service",
+					name: "用户信息",
+					path: "/staff",
+				},
+				{
+					icon: "el-icon-mobile-phone",
+					name: "信息列表",
+					path: "/listuser",
+				},
         {
           icon: "el-icon-document",
           name: "资金管理",
@@ -55,10 +55,10 @@ export default {
               path: "/fundList",
               name: "资金流水"
             },
-            {
-              path: "/payList",
-              name: "支付单据"
-            }
+						{
+							path: "/payList",
+							name: "支付单据"
+						}
           ]
         },
         {
@@ -70,30 +70,30 @@ export default {
               path: "/infoshow",
               name: "个人信息"
             },
-            {
-              path: "/editor",
-              name: "表单处理",
-              children: [
-                {
-                  path: "/editor",
-                  name: "富文本编辑器"
-                },
-                {
-                  path: "/markdown",
-                  name: "Markdown编辑器"
-                },
-                {
-                  path: "/markdown",
-                  name: "文章",
-                  children: [
-                    {
-                      path: "/showFundArticle",
-                      name: "文章列表"
-                    }
-                  ]
-                }
-              ]
-            }
+						{
+							path: "/editor",
+							name: "表单处理",
+								children:[
+									{
+										path: "/editor",
+										name: "富文本编辑器"
+									},
+									{
+										path: "/markdown",
+										name: "Markdown编辑器"
+									},
+									{
+										path: "/markdown",
+										name: "文章",
+										children:[
+											{
+												path: "/showFundArticle",
+												name: "文章列表"
+											}
+										]
+									},
+							]
+						}
           ]
         },
         {
@@ -104,14 +104,14 @@ export default {
             {
               path: "/chinaTouziList",
               name: "省份投资"
-            },
-            {
+						},
+						{
               path: "/chinaTabsList",
               name: "区域投资"
             }
           ]
-        },
-        {
+				},
+				{
           icon: "el-icon-tickets",
           name: "资金数据",
           path: "/position",
@@ -119,21 +119,21 @@ export default {
             {
               path: "/fundPosition",
               name: "投资分布"
-            }
+						}
           ]
         },
-        {
-          icon: "el-icon-location-outline",
-          name: "地图展示",
-          path: "/maplist"
-        }
+				{
+					icon: "el-icon-location-outline",
+					name: "地图展示",
+					path: "/maplist",
+				},
       ]
-    };
+    }
   },
-  components: {
-    Menu
-  },
-  methods:{
+	components:{
+		Menu
+	},
+	methods:{
 		initScroll() {
 			this.scroll = new Bscroll(this.$refs.wrapper, {
 			})
@@ -144,12 +144,12 @@ export default {
 			this.initScroll()
 		})
 	},
-  created() {
-    // 通过 Event Bus 进行组件间通信，来折叠侧边栏
-    bus.$on("collapse", msg => {
-      this.collapse = msg;
-    });
-  }
+	created() {
+		// 通过 Event Bus 进行组件间通信，来折叠侧边栏
+		bus.$on('collapse', msg => {
+			this.collapse = msg;
+		})
+	}
 };
 </script>
 <style scoped>
@@ -215,4 +215,3 @@ export default {
 		text-decoration: none;
 	}
 </style>
-

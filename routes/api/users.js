@@ -1,7 +1,8 @@
 //主要用于Login登录 register 注册
 const express = require("express");
 const router = express.Router();
-const bcrypt = require("bcrypt");   //加密
+// const bcrypt = require("bcrypt");   //加密
+const bcrypt = require("bcryptjs");   //加密
 const User = require("../../models/User");
 const keys = require("../../config/keys");
 const gravatar = require('gravatar');  //头像

@@ -11,10 +11,6 @@
 			return {
 				
 			};
-		},
-		beforeRouteEnter (to, from, next) {
-			alert("哈哈")
-			next()
 		}
 	}
 </script>

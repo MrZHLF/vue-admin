@@ -1,8 +1,8 @@
 <template>
   <div class="home">
       <div class="container">
-					<HomeTop></HomeTop>
-					<BaseCharts/>
+		<HomeTop></HomeTop>
+		<BaseCharts/>
       </div>
   </div>
 </template>

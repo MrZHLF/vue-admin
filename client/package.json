@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "better-scroll": "^1.13.4",
     "echarts": "^4.2.0-rc.2",
     "element-ui": "^2.4.8",
     "file-saver": "^2.0.0",
