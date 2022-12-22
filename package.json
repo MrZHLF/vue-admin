@@ -18,7 +18,7 @@
     "concurrently": "^4.0.1",
     "express": "^4.16.4",
     "gravatar": "^1.6.0",
-    "jsonwebtoken": "^8.3.0",
+    "jsonwebtoken": "^9.0.0",
     "mongoose": "^5.3.4",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0"
